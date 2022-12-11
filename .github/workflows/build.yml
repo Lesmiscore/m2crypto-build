@@ -34,7 +34,7 @@ jobs:
 
       - working-directory: m2crypto
         run: |
-          python setup.py build --openssl=C:\Program Files\OpenSSL-Win64\include --bundledlls
+          python setup.py build --openssl="C:\Program Files\OpenSSL-Win64\" --bundledlls
           python.exe setup.py bdist_wheel bdist_wininst bdist_msi
 
       - uses: actions/upload-artifact@v2
