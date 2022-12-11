@@ -13,8 +13,8 @@ index 04ac8c7..dd26445 100644
 +        # Manually add MSVC headers paths
 +        import glob, itertools
 +        self.swig_opts.extend("-I" + x for x in itertools.islice(itertools.chain(
-+            glob.glob("C:\\Program Files (x86)\\Microsoft Visual Studio\\*\\*\\VC\\Tools\\MSVC\\*\\include"),
-+            glob.glob("C:\\Program Files\\Microsoft Visual Studio\\*\\*\\VC\\Tools\\MSVC\\*\\include"),
++            glob.glob("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\*\\VC\\Tools\\MSVC\\*\\include"),
++            glob.glob("C:\\Program Files\\Microsoft Visual Studio\\2019\\*\\VC\\Tools\\MSVC\\*\\include"),
 +        ), 1))
 +
          self.swig_opts.append('-includeall')
