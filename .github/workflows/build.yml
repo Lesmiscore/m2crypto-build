@@ -22,7 +22,9 @@ jobs:
 
       - run: |
           iwr -uri "https://slproweb.com/download/Win64OpenSSL-1_1_1s.exe" -outfile openssl_setup.exe
-          ./openssl_setup.exe /quiet /sp- /norestart
+          #./openssl_setup.exe "/quiet" "/sp-" "/norestart"
+          $p = Start-Process ./openssl_setup.exe -ArgumentList "/quiet","/sp-","/norestart" -wait -NoNewWindow -PassThru
+          $p.WaitForExit()
 
       # https://stackoverflow.com/a/59817750
       - run: |
