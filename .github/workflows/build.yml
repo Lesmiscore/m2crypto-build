@@ -29,7 +29,7 @@ jobs:
       - run: |
           ls "C:\Program Files\OpenSSL-Win64"
           ls "C:\Program Files (x86)\Microsoft Visual Studio\*\*\VC\Tools\MSVC\*\include\"
-          choco install -r -y swig visualstudio2019buildtools
+          choco install -r -y swig visualstudio2019buildtools visualstudio2019enterprise
           pip install -U pywin32 wheel
           git clone https://gitlab.com/m2crypto/m2crypto.git m2crypto
 
