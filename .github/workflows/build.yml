@@ -22,7 +22,7 @@ jobs:
 
       - run: |
           iwr -uri "https://slproweb.com/download/Win64OpenSSL-1_1_1s.exe" -outfile openssl_setup.exe
-          ./openssl_setup.exe /quiet /norestart /dir "C:\OpenSSL"
+          ./openssl_setup.exe /quiet /sp- /norestart /dir="C:\OpenSSL"
 
       # https://stackoverflow.com/a/59817750
       - run: |
