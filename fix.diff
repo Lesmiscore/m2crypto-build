@@ -1,14 +1,21 @@
 diff --git a/setup.py b/setup.py
-index 04ac8c7..fd8480a 100644
+index 04ac8c7..e1aefd1 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -215,6 +215,10 @@ class _M2CryptoBuildExt(build_ext.build_ext):
+@@ -215,6 +215,17 @@ class _M2CryptoBuildExt(build_ext.build_ext):
              self.swig_opts.append(
                  '-I' + os.path.join(openssl_include_dir, 'openssl'))
  
 +        # Add correct paths for OpenSSL headers since --openssl doesn't work at all
 +        self.swig_opts.append("-IC:\\Program Files\\OpenSSL-Win64\\include")
 +        self.swig_opts.append("-IC:\\Program Files\\OpenSSL-Win64\\include\\openssl")
++
++        # Manually add MSVC headers paths
++        import glob, itertools
++        self.swig_opts.extend("-I" + x for x in itertools.chain(
++            glob.glob("C:\\Program Files (x86)\\Microsoft Visual Studio\\*\\*\\VC\\Tools\\MSVC\\*\\include"),
++            glob.glob("C:\\Program Files\\Microsoft Visual Studio\\*\\*\\VC\\Tools\\MSVC\\*\\include"),
++        ))
 +
          self.swig_opts.append('-includeall')
          self.swig_opts.append('-modern')
