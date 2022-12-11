@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index 04ac8c7..e1aefd1 100644
+index 04ac8c7..dd26445 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -215,6 +215,17 @@ class _M2CryptoBuildExt(build_ext.build_ext):
@@ -12,10 +12,10 @@ index 04ac8c7..e1aefd1 100644
 +
 +        # Manually add MSVC headers paths
 +        import glob, itertools
-+        self.swig_opts.extend("-I" + x for x in itertools.chain(
++        self.swig_opts.extend("-I" + x for x in itertools.islice(itertools.chain(
 +            glob.glob("C:\\Program Files (x86)\\Microsoft Visual Studio\\*\\*\\VC\\Tools\\MSVC\\*\\include"),
 +            glob.glob("C:\\Program Files\\Microsoft Visual Studio\\*\\*\\VC\\Tools\\MSVC\\*\\include"),
-+        ))
++        ), 1))
 +
          self.swig_opts.append('-includeall')
          self.swig_opts.append('-modern')
