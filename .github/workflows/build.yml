@@ -28,7 +28,7 @@ jobs:
       # https://stackoverflow.com/a/59817750
       - run: |
           ls "C:\Program Files\OpenSSL-Win64"
-          choco install -r -y swig
+          choco install -r -y swig visualstudio2019buildtools
           pip install -U pywin32 wheel
           git clone https://gitlab.com/m2crypto/m2crypto.git m2crypto
 
