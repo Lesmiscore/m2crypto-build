@@ -22,15 +22,14 @@ jobs:
 
       # https://stackoverflow.com/a/59817750
       - run: |
-          ls "C:\Program Files"
-          ls "C:\Program Files\OpenSSL-Win64"
+          ls "C:\Program Files\OpenSSL"
           choco install -r -y swig
           pip install -U pywin32 wheel
           git clone https://gitlab.com/m2crypto/m2crypto
 
       - working-directory: m2crypto
         run: |
-          python setup.py build --openssl="C:\Program Files\OpenSSL-Win64" --bundledlls
+          python setup.py build --openssl="C:\Program Files\OpenSSL" --bundledlls
           python.exe setup.py bdist_wheel bdist_wininst bdist_msi
 
       - uses: actions/upload-artifact@v2
