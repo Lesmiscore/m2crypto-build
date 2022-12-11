@@ -34,6 +34,7 @@ jobs:
 
       - working-directory: m2crypto
         run: |
+          git apply ../fix.diff
           python setup.py build --openssl="C:\Program Files\OpenSSL-Win64\" --bundledlls
           python.exe setup.py bdist_wheel bdist_wininst bdist_msi
 
